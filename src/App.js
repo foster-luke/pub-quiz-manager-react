@@ -5,8 +5,15 @@ import './App.css';
 function App() {
     
   return (
-    <div className="App">
-          <Game categoryID={0} questionID={0}/>
+      <div className="App">
+          <div className="container">
+              <div className="row">
+                  <div className="col">
+                      <Game categoryID={0} questionID={0}/>
+                  </div>
+              </div>
+          </div>
+          
     </div>
   );
 }

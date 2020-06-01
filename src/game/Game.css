@@ -1,0 +1,19 @@
+.category {
+    font-weight:bold;
+    font-size:1.6em;
+}
+
+.question .body {
+    font-size: 1.4em;
+}
+
+.question .points {
+    font-size:1.1em;
+    font-style: italic;
+    margin-bottom: 2rem;
+}
+
+.stage {
+    min-height: 30rem;
+    margin: 1em 0;
+}

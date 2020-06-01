@@ -85,8 +85,12 @@ class Game extends React.Component {
         } else {
             return (
                 <div>
-                    <Stage question={this.state.question} nextCategory={this.nextCategory}/>
-                    <button className="square" onClick={() => this.handleNextQuestionClick()}>
+                    <div className="category">
+                        Category: {this.categories[this.state.categoryID].name}
+                    </div>
+                    <Stage question={this.state.question} nextCategory={this.nextCategory} key={this.state.categoryID + "." + this.state.questionID}/>
+                    <hr/>
+                    <button className="btn btn-primary" onClick={() => this.handleNextQuestionClick()}>
                         Next Question
                     </button>
                 </div>

@@ -11,17 +11,13 @@ class Question extends React.Component {
 
         return (
             <div className="question">
+                <div className="points">
+                    Points: {this.props.question.pointsText}
+                </div>
                 <div className="body">
                     {this.props.question.body}
                 </div>
-                <div className="points">
-                    {this.props.question.points}
-                </div>
-                <div className="helpText">
-                    {this.props.question.help ?? ''}
-                </div>
-            </div>
-            
+            </div>            
         )
     }
 }

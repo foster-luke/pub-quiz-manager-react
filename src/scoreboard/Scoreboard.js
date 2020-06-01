@@ -8,7 +8,7 @@ class Scoreboard extends React.Component {
             scores: null,
             scoresLoaded: false
         }
-        this.nextCategoryId = this.props.nextCategory()
+        this.nextCategoryId = this.props.nextCategory();
     }
 
     componentDidMount() {
@@ -43,7 +43,6 @@ class Scoreboard extends React.Component {
         scores = scores.sort(function (a, b) {
             return b.score - a.score;
         });
-        scores.reverse();
         return scores;
     }
 
@@ -52,7 +51,7 @@ class Scoreboard extends React.Component {
             var scores = this.sortScores();
             
             return (
-                <table>
+                <table className="table table-striped table-hover">
                     <thead>
                         <tr>
                             <th>Position</th>
@@ -78,11 +77,9 @@ class Scoreboard extends React.Component {
         }
     }
 
+
     render() {
-        if (this.nextCategoryId === false) {
-            return this.renderFinalScoreboard();
-        }
-            return this.renderScoreboard();
+        return this.renderScoreboard();
     }
 }
 

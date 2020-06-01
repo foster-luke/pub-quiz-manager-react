@@ -6,9 +6,10 @@ class Stage extends React.Component {
 
     constructor(props) {
         super(props);
-        if (this.props.question === undefined) {
-            this.props.nextCategory = this.props.nextCategory;
+        this.state = {
+            scoresCalculated: false
         }
+        this.handleScoresCalculatedClick = this.handleScoresCalculatedClick.bind(this);
     }
 
     renderQuestion() {
@@ -19,12 +20,32 @@ class Stage extends React.Component {
         return (<Scoreboard nextCategory={nextCategory} />);
     }
 
+
+    handleScoresCalculatedClick() {
+        this.setState({
+            scoresCalculated: true
+        });
+    }
+
+    renderCalculatingWarning() {
+        return (<div>
+            Calculating Scores...
+            <br />
+            <button onClick={() => this.handleScoresCalculatedClick()} />
+        </div>);
+    }
+
     render() {
-        if (this.props.question === undefined) {
-            return (this.renderScoreboard(this.props.nextCategory));
-        } else {
-            return(this.renderQuestion());
-        }
+        return (
+            <div className="stage">
+                {(this.props.question === undefined)
+                    ? (this.state.scoresCalculated === false)
+                        ? this.renderCalculatingWarning()
+                        : this.renderScoreboard(this.props.nextCategory)
+                    : this.renderQuestion()
+                }
+            </div>
+        );
     }
 }
 
